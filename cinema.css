@@ -1,0 +1,140 @@
+body{
+	font-family: segoe UI;
+
+}
+#body{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: #8B4513;
+}
+#header{
+	background: rgba(80,00,00,10);
+	color: white;
+	width: 100%;
+	padding-top: 10px;
+	font-size: 40pt;
+	font-family: Aharoni;
+	text-align: center;
+	border-bottom: 3px solid white;
+}
+#vline{
+	height: 50px; 
+	width: 50px;
+	border-radius: 100%; 
+	background: white; 
+	display: inline-block;
+	border-top: 5px solid #ADFF2F;
+	border-bottom: 5px solid #ADFF2F;
+	border-left: 5px solid #C71585;
+	border-right: 5px solid #C71585;
+	margin-right: 70px;
+	margin-left: 70px;
+	animation-name: line;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes line{
+	0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}
+#line{
+	width: 100%;
+	height: 2px;
+	margin-top: 10px;
+}
+#function_container{
+	text-align: center;
+	margin: 0 auto;
+	padding-left: 14%;
+}
+.function{
+	width: 25%;
+	margin-top: 20px;
+	padding-right: 10px;
+	float: left;
+	margin-left: 10px;
+	height: 300px;
+	margin-bottom: 40px;
+
+}
+.allocate{
+	border-radius: 4px;
+	width: 70%;
+	background: white;
+	font-family: aharoni;
+	font-size: 20pt;
+	color: #B20000;
+	margin-left: 50px;
+	cursor: pointer;
+}
+.allocate_content{
+	background: rgba(80,00,00,10);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 90%;
+	margin-bottom: 30px;
+	display: none;
+}
+.label{
+	font-size: 15pt;
+	color: white;
+}
+.input{
+	height: 30px;
+	width: 80%;
+	border-radius: 4px;
+	border-style: none;
+	margin-bottom: 20px;
+	background-color: lightgrey;
+	font-size: 150%;
+	color: #08122C;
+	text-align: center;
+}
+#seats{
+	clear: left;
+	background: #B20000;
+
+}
+table{
+	border-collapse: collapse;
+	border-color: white;
+}
+td{
+	width: 5%;
+	height: 100px;
+	border-right: 2px solid white;
+	background: url(furniture.jpg);
+	background-size: 98%;
+	background-repeat: no-repeat;
+	font-size: 25pt;
+	color: #B20000;
+	text-shadow: 2px 2px 0px white;
+	text-align: center;
+}
+#ticket{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: white;
+	text-align: center;
+	font-size: 15pt;
+	color: black;
+	display: none;
+}
+#all{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: white;
+	text-align: center;
+	font-size: 15pt;
+	color: black;
+	display: none;
+
+}

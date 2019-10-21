@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CINEMA APP</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="cinema.css">
+</head>
+		<script type="text/javascript">
+
+		var seat = [];
+		emptySeat=0;
+		occSeat=0;
+		ticketNumber=0;
+		function seatOpener(){
+			document.getElementById('seat_allocator').style.display="none";
+			document.getElementById('seat_creator').style.display="block";
+			document.getElementById('printer').style.display="none";
+		}
+		function seatCreator(){
+			// seat ="";
+
+			chart.style.display="inline-block";
+			for(i=1;i<=no_of_seats.value;i++)
+			{
+			if(i%10>0){
+				seat.push(i);
+				seat[i]="<td>" + i + "</td>";
+				}
+			if(i%10==0){
+				seat.push(i);
+				seat[i]="<td>" + i + "</td></tr>";
+				
+					}
+			emptySeat++;
+			}
+			seatee.innerHTML="";
+			seatee.innerHTML=seat;
+
+			chart=chart.getContext('2d');
+			chart.fillStyle="#B20000";
+			chart.fillRect(40,0,50,emptySeat*10);
+			chart.font="15pt Aharoni";
+			chart.fillText("Created",30,490);
+			chart.fillText("Allocated",120,490);
+			chart.fillText("-1",0,10);
+			chart.fillText("-2",0,20);
+			chart.fillText("-3",0,30);
+			chart.fillText("-4",0,40);
+			chart.fillText("-5",0,50);
+			chart.fillText("-6",0,60);
+			chart.fillText("-7",0,70);
+			chart.fillText("-8",0,80);
+			chart.fillText("-9",0,90);
+			chart.fillText("-10",0,100);
+			chart.fillText("-11",0,110);
+			chart.fillText("-12",0,120);
+			chart.fillText("-13",0,130);
+			chart.fillText("-14",0,140);
+			chart.fillText("-15",0,150);
+			chart.fillText("-16",0,160);
+			chart.fillText("-17",0,170);
+			chart.fillText("-18",0,180);
+			chart.fillText("-19",0,190);
+			chart.fillText("-20",0,200);
+			chart.fillText("-21",0,210);
+			chart.fillText("-22",0,220);
+			chart.fillText("-23",0,230);
+			chart.fillText("-24",0,240);
+			chart.fillText("-25",0,250);
+			chart.fillText("-26",0,260);
+			chart.fillText("-27",0,270);
+			chart.fillText("-28",0,280);
+			chart.fillText("-29",0,290);
+			chart.fillText("-30",0,300);
+
+
+
+		}
+		function allocatorOpener(){
+			document.getElementById('seat_allocator').style.display="block";
+			document.getElementById('seat_creator').style.display="none";
+			document.getElementById('printer').style.display="none";
+		}
+		function printOpener(){
+			document.getElementById('seat_allocator').style.display="none";
+			document.getElementById('seat_creator').style.display="none";
+			document.getElementById('printer').style.display="block";
+		}
+		// var btn = document.getElementById(q+n).innerHTML;
+		function seatAllocator(){
+
+			s = sn.value;
+			na = nam.value;
+		
+			if(sn.value<=i){
+
+				if(seat[sn.value]=="<td>" + sn.value + "</td>"){
+				seat[sn.value]="<td onclick='print()'>" + na.toUpperCase() + "</td>";
+				seatee.innerHTML=seat;
+				occSeat++;
+				ticketNumber++;
+				}else if(seat[sn.value]=="<td>" + sn.value + "</td></tr>"){
+				seat[sn.value]="<td onclick='print()'>" + na.toUpperCase() + "</td></tr>";
+				seatee.innerHTML=seat;
+				occSeat++;
+				ticketNumber++;
+				}
+				else if(sn.value>i){
+				alert("Seat not available -- Please select between " + 1 + " - " + no_of_seats.value)
+					}
+				else{
+					confirm("Seat already occupied but if you wish to change click OK");
+					if(confirm){
+					seat[sn.value]="<td onclick='print()'>" + na.toUpperCase() + "</td>";
+					seatee.innerHTML=seat;
+					ticketNumber++;
+					if (sn.value%10==0){
+						seat[sn.value]="<td onclick='print()'>" + na.toUpperCase() + "</td></tr>";
+					seatee.innerHTML=seat;
+					ticketNumber++;
+					}
+					}
+				}
+			}
+			
+			chart.fillRect(140,0,50,occSeat*10);
+
+
+		}
+		function print(){
+			ticket.style.display="block";
+			vname.innerHTML=na.toUpperCase();
+			seatno.innerHTML=sn.value;
+			tickno.innerHTML=Math.floor(Math.random()*101)+1;
+			window.print(ticket.innerHTML);
+		}
+		function printcurr(){
+			ticket.style.display="block";
+			vname.innerHTML=na.toUpperCase();
+			seatno.innerHTML=sn.value;
+			tickno.innerHTML=sn.value;
+			window.print(ticket.innerHTML);
+		}
+		function ret(){
+			ticket.style.display="none";
+			body.style.display="block";
+		}
+		function retall(){
+			all.style.display="none";
+			body.style.display="block";
+		}
+		function printall(){
+			var admin = prompt("Only authorized users: type your pin below");
+			if(admin=="1234"){
+			all.style.display="block";
+			body.style.display="none";
+			all.innerHTML+=seats.innerHTML;
+			}
+			else{
+				alert("You are not to go in here, so STEP BACK!!!")
+			}
+		}
+		function printbysn(){
+			if(seat[seateeno.value]=="<td>" + seateeno.value + "</td>"){
+				alert("The seat is currently empty");
+			}
+			else if(seat[seateeno.value]=="<td>" + seateeno.value + "</td></tr>"){
+				alert("The seat is currently empty");
+			}
+			else{
+			body.style.display="none";
+			ssn=seateeno.value;
+			ticket.style.display="block";
+			vname.innerHTML=seat[ssn];
+			// tickno.innerHTML=Math.floor(Math.random()*101)+1;
+			seatno.innerHTML=ssn;
+			}
+		}
+	</script>
+<body>
+	<div id="body">
+		<div id="header"><div id="vline"></div>FAVOUR ULTRA-MODERN CINEMA<div id="vline"></div></div>
+		<div id="function_container">
+			<canvas id="chart" width="230" height="500" style="background: white; display: none;"></canvas>
+			<div class="function">
+				<div class="allocate" align="center" onmouseover="seatOpener()">CREATE SEATS<span id="click">&#8631;</span></div>
+				<div class="allocate_content" id="seat_creator">
+					<p class="label">Number of Seats</p>
+					<input type="text" class="input" id="no_of_seats">
+					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;" onclick="seatCreator()">Create</div>
+				</div>
+			</div>
+			<div class="function">
+				<div class="allocate" align="center" onmouseover="allocatorOpener()"><small>ALLOCATE SEATS</small><span id="click">&#8631;</span></div>
+				<div class="allocate_content" id="seat_allocator">
+					<p class="label">Seat Number</p>
+					<input type="text" class="input" id="sn">
+					<p class="label">Name</p>
+					<input type="text" class="input" id="nam">
+					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;" onclick="seatAllocator()">Allocate</div>
+				</div>
+			</div>
+			<div class="function" style="border-right: 0">
+				<div class="allocate" align="center" onmouseover="printOpener()">PRINT TICKETS<span id="click">&#8631;</span></div>
+				<div class="allocate_content" id="printer">
+					<div class="allocate" align="center" style="margin-top: 50px" onclick="printcurr()"><small>Print Current Ticket</small></div>
+					<p class="label">Seat Number</p>
+					<input type="text" class="input" id="seateeno">
+					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;" onclick="printbysn()">Print</div>
+					<hr>
+					<div class="allocate" align="center" style="margin-top: 50px" onclick="printall()"><small>PRINT ALL SEATS</small></div>
+				</div>
+			</div>
+		</div>
+		<div id="seats">
+			<table id="seatee" width="100%">
+				
+			</table>
+		</div>
+	</div>
+	<div id="ticket">
+		<h1 style="background: black; color: white">FAVOUR RIVERSIDE CINEMA</h1>
+		<p id="vname" style="margin-top: 20px"></p>
+<!-- 		<p style="margin-top: 20px">Your Ticket Number is:</p> -->
+		<p id="tickno" style="margin-top: 20px"></p>
+		<p style="margin-top: 20px">Your Seat Number is:</p>
+		<p id="seatno" style="margin-top: 20px"></p>
+		<button onclick="ret()" style="background: black; color: white; border-style: none; font-size: 13pt; border-radius: 5px; padding: 10px; cursor: pointer;">RETURN</button>
+	</div>
+	<div id="all"><button onclick="retall()" style="background: black; color: white; border-style: none; font-size: 13pt; border-radius: 5px; padding: 10px; cursor: pointer; margin-bottom: 50px">RETURN</button></div>
+
+<script type="text/javascript">
+	if("serviceWorker" in navigator && 'pushManager' in window){
+		navigator.serviceWorker.register('./service-worker.js')
+		.then(function(reg){
+			console.log("Successful");
+		}).catch(function(err){
+			console.log(err);
+		})
+	}
+</script>
+
+</body>
+</html>
